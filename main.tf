@@ -128,7 +128,3 @@ resource "aws_security_group" "main" {
 output "a" {
   value = local.public_cidr
 }
-
-output "b" {
-  value = length(local.public_cidr)
-}
