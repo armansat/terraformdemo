@@ -19,6 +19,7 @@ resource "aws_subnet" "public" {
     Name = "public${count.index}"
   }
 }
+
 # Create a Private Subnet
 resource "aws_subnet" "private" {
   count      = length(local.private_cidr)
