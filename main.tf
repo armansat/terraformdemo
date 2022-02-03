@@ -11,6 +11,7 @@ locals {
 # Create a Public Subnet
 resource "aws_subnet" "public" {
   count      = length(local.public_cidr)
+  
   vpc_id     = aws_vpc.main.id
   cidr_block = local.public_cidr[count.index]
 
