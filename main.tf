@@ -125,6 +125,7 @@ resource "aws_security_group" "main" {
     Name = "Main"
   }
 }
+
 output "a" {
   value = local.public_cidr
 }
