@@ -29,6 +29,7 @@ resource "aws_subnet" "private" {
     Name = "private${count.index}"
   }
 }
+
 #Create Route Table Association Public Subnet
 resource "aws_route_table_association" "public" {
   count          = length(local.public_cidr)
