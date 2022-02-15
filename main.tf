@@ -11,8 +11,8 @@ locals {
 
 # Create a Public Subnet
 resource "aws_subnet" "public" {
-  count      = length(local.public_cidr)
-  
+  count = length(local.public_cidr)
+
   vpc_id     = aws_vpc.main.id
   cidr_block = local.public_cidr[count.index]
 
@@ -108,15 +108,15 @@ resource "aws_security_group" "main" {
     protocol    = "-1"
     cidr_blocks = ["10.0.0.0/16"]
   }
-  
+
   ingress {
     description = "SSH from VPC"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["109.239.42.216/32"]
+    cidr_blocks = ["62.84.32.194/32"]
   }
-  
+
   egress {
     from_port   = 0
     to_port     = 0
