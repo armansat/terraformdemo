@@ -10,13 +10,17 @@ terraform {
 provider "aws" {
   region = "us-east-1"
 }
-# Create backend
-terraform {
-  backend "s3" {
-    bucket = "777bucket777"
-    key    = "s3://777bucket777/devops/"
-    region = "us-east-1"
-    # Create DynamoDB
-    dynamodb_table = "mytable"
-  }
+# Create bucket
+resource "aws_s3_bucket" "basicstorage" {
+  bucket = "999bucket999"
+}
+# Create DynamoDB table
+resource "aws_dynamodb_table" "basic-dynamodb-table"{
+name = "mydynamodbtable"
+billing_mode = "PAY_PER_REQUEST"
+hash_key = "LockID"
+attribute {
+name = "LockID"
+type = "S"
+}
 }
